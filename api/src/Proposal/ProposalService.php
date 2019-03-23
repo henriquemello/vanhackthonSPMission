@@ -8,8 +8,8 @@ use ProposiDocs\Proposal\Storage\ProposalStorageService;
 class ProposalService {
 
 	public static function create(ProposalEntity $entity): ProposalEntity {
-		ProposalStorageService::resolve()->insertProposal($entity);
-		return $entity;
+		$id = ProposalStorageService::resolve()->insertProposal($entity);
+		return ProposalStorageService::resolve()->getProposal($id);
 	}
 
 	public static function getAll(): array {
@@ -22,8 +22,7 @@ class ProposalService {
 
 	public static function sign(ProposalEntity $entity): ProposalEntity {
 		$entity->sign();
-		ProposalStorageService::resolve()->updateProposal($entity);
-		return $entity;
+		return ProposalStorageService::resolve()->updateProposal($entity);
 	}
 
 	public static function decline(ProposalEntity $entity): ProposalEntity {
