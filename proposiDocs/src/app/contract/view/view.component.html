@@ -1,3 +1,14 @@
-<p>
-  view works!
-</p>
+<div class="contract">
+
+	<div class="title-contract">{{_contract.id}} - {{_contract.title}}</div>
+
+	<div class="content-contract">
+		<div class="description-contract">{{_contract.description}}</div>
+		<div class="price-contract">{{_contract.price}}</div>
+	</div>
+
+	<form (ngSubmit)="onSubmit()">
+		<button class="btn btn-primary">Sign Proposal</button>
+	</form>
+
+</div>
