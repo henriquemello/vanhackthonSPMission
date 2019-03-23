@@ -12,14 +12,21 @@ class ProposalService {
 		return $entity;
 	}
 
+	public static function getAll(): array {
+		return ProposalStorageService::resolve()->getAll();
+	}
+
 	public static function getProposal(int $proposalId): ProposalEntity {
 		return ProposalStorageService::resolve()->getProposal($proposalId);
 	}
 
-//	get
-//getAll
+	public static function sign(ProposalEntity $entity): ProposalEntity {
+		$entity->sign();
+		ProposalStorageService::resolve()->updateProposal($entity);
+		return $entity;
+	}
+ 
 //decline
-//sign
 //delete
 //update
 

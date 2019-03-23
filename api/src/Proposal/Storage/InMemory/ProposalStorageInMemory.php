@@ -17,10 +17,22 @@ class ProposalStorageInMemory implements ProposalStorage {
 		return $entity->getId();
 	}
 
+	public function getAll(): array {
+		return $this->storage;
+	}
+
 	public function getProposal(int $proposalId): ProposalEntity {
 		if (!isset($this->storage[$proposalId])) {
 			throw new \LogicException('Proposal with id not found');
 		}
 		return $this->storage[$proposalId];
+	}
+
+	public function updateProposal(ProposalEntity $entity): ProposalEntity {
+		if (!isset($this->storage[$entity->getId()])) {
+			throw new \LogicException('Proposal not found');
+		}
+		$this->storage[$entity->getId()] = $entity;
+		return $this->storage[$entity->getId()];
 	}
 }
