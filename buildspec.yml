@@ -10,7 +10,7 @@ phases:
         commands:
             - echo Installing source NPM dependencies...
             - npm install
-            # - npm install -g @angular/cli
+            - npm install -g @angular/cli
             - npm install --save-dev @angular-devkit/build-angular
     build:
         commands:
@@ -23,6 +23,7 @@ phases:
             - ls -l
     post_build:
          commands:
+            - pwd; ls -l
             - cd ${BUILD_FOLDER}/proposiDocs
             - aws s3 cp . s3://${S3_BUCKET} --recursive --acl public-read --cache-control "max-age=${CACHE_CONTROL}"
             - echo Build completed on `date`
