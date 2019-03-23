@@ -35,4 +35,12 @@ class ProposalStorageInMemory implements ProposalStorage {
 		$this->storage[$entity->getId()] = $entity;
 		return $this->storage[$entity->getId()];
 	}
+
+	public function deleteProposal(ProposalEntity $entity): bool {
+		if (!isset($this->storage[$entity->getId()])) {
+			throw new \LogicException('Proposal not found');
+		}
+		unset($this->storage[$entity->getId()]);
+		return true;
+	}
 }

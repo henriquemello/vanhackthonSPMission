@@ -32,7 +32,12 @@ class ProposalService {
 		return $entity;
 	}
 
-//delete
+	public static function deleteProposal(ProposalEntity $entity): ProposalEntity {
+		ProposalStorageService::resolve()->deleteProposal($entity);
+		return $entity;
+	}
+
+
 //update
 
 }
