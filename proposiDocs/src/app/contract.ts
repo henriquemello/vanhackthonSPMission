@@ -1,10 +1,11 @@
 export class Contract {
+    id: number;
     subject: string = '';
     description: string = '';
-    mail: string ='';
     price: number=0;
-
+    
     isOpened: boolean = false;
     isSigned: boolean = false;
+    isDeclined: boolean =false;
 
 }
