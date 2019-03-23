@@ -17,8 +17,6 @@ class ProposalEntity {
 		$this->title = $title;
 		$this->description = $description;
 		$this->price = $price;
-		$this->id = rand(1, 50000);
-
 		$this->isOpen = false;
 		$this->isSigned = false;
 		$this->isDeclined = false;
@@ -86,5 +84,14 @@ class ProposalEntity {
 			'isSigned' => $this->isSigned(),
 			'isDeclined' => $this->isDeclined(),
 		];
+	}
+
+	public static function createFromArray(array $data): ProposalEntity {
+		$instance = new self($data['title'], $data['description'], $data['price']);
+		$instance->id = $data['id'];
+		$instance->isOpen = (bool) $data['is_open'];
+		$instance->isSigned = (bool) $data['is_signed'];
+		$instance->isDeclined = (bool) $data['is_declined'];
+		return $instance;
 	}
 }

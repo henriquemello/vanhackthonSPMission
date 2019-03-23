@@ -47,19 +47,19 @@ $router->get('/proposal/{id}', function ($id) use ($router) {
 	return \ProposiDocs\Proposal\ProposalService::getProposal($id)->toArray();
 });
 
-$router->get('/proposal/{id}/isSigned', function ($id) use ($router) {
+$router->post('/proposal/{id}/sign', function ($id) use ($router) {
 	$proposalEntity = \ProposiDocs\Proposal\ProposalService::getProposal($id);
-	return $proposalEntity->isSigned();
+	return \ProposiDocs\Proposal\ProposalService::sign($proposalEntity)->toArray();
 });
 
-$router->get('/proposal/{id}/isOpened', function ($id) use ($router) {
+$router->post('/proposal/{id}/open', function ($id) use ($router) {
 	$proposalEntity = \ProposiDocs\Proposal\ProposalService::getProposal($id);
-	return $proposalEntity->isOpen();
+	return \ProposiDocs\Proposal\ProposalService::open($proposalEntity)->toArray();
 });
 
-$router->get('/proposal/{id}/isDeclined', function ($id) use ($router) {
+$router->post('/proposal/{id}/decline', function ($id) use ($router) {
 	$proposalEntity = \ProposiDocs\Proposal\ProposalService::getProposal($id);
-	return $proposalEntity->isDeclined();
+	return \ProposiDocs\Proposal\ProposalService::decline($proposalEntity)->toArray();
 });
 
 $router->get('/proposal/{id}/getLastVersion', function ($id) use ($router) {
