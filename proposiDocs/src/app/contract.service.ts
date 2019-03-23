@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Contract } from './contract';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
- 
+
 
 @Injectable({
   providedIn: 'root'
@@ -41,11 +41,11 @@ export class ContractService {
 
   // getProposals(){
   //   return this.http.get(`${this.URL}getProposals.php`);
-  // } 
+  // }
 
   // addProposal(proposal){
-    
-    
+
+
   //   console.log(JSON.stringify(proposal))
   //   return this.http.post(`${this.URL}addProposal.php`,JSON.stringify(proposal));
   // }
