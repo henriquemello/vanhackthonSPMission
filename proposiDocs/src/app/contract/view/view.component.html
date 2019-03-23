@@ -1,14 +1,26 @@
-<div class="contract">
+<div class="container">
 
-	<div class="title-contract">{{_contract.id}} - {{_contract.title}}</div>
+	<app-header></app-header>
 
-	<div class="content-contract">
-		<div class="description-contract">{{_contract.description}}</div>
-		<div class="price-contract">{{_contract.price}}</div>
+	<div class="panel panel-primary" style="width: 100%;">
+		<div class="panel-heading">{{_contract.id}} - {{_contract.title}}</div>
+
+		<div class="panel-body btn-toolbar">
+
+			<p>
+				{{_contract.description}}
+				<br />
+				{{_contract.price}}
+			</p>
+
+
+			<button [disabled]=isDisabled() class="btn btn-success mx-auto" (click)="signProposal(_contract.id)">Sign Proposal</button>
+			<button [disabled]=isDisabled() class="btn btn-danger" (click)="declineProposal(_contract.id)">Decline Proposal</button>
+
+
+			{{(ret && ret.error)?showError():((ret)?disableButtons():doNothing())}}
+
+		</div>
 	</div>
-
-	<form (ngSubmit)="onSubmit()">
-		<button class="btn btn-primary">Sign Proposal</button>
-	</form>
 
 </div>
