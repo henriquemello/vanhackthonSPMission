@@ -7,30 +7,29 @@ import { HttpClient} from '@angular/common/http';
 })
 export class ContractService {
 
-  URL = "http://localhost:9000/";
+  URL = "http://api.fernandocunha.click/";
 
   constructor(private http: HttpClient) { }
 
 
   getProposals(){
-    return this.http.get(`${this.URL}getProposals.php`);
+    return this.http.get(`${this.URL}proposals`);
   }
 
   addProposal(proposal){
 
-    console.log(JSON.stringify(proposal))
-    return this.http.post(`${this.URL}addProposal.php`,JSON.stringify(proposal));
+    return this.http.post(`${this.URL}proposal`,JSON.stringify(proposal));
   }
 
   deleteProposal(contractId: number){
-    return this.http.get(`${this.URL}deleteProposal.php?idUser=${contractId}`);
+    return this.http.delete(`${this.URL}proposal/${contractId}`);
   }
 
   getProposal(contractId:number){
-    return this.http.get(`${this.URL}getProposal.php?idUser=${contractId}`);
+    return this.http.get(`${this.URL}proposal/${contractId}`);
   }
 
-  updateProposal(proposal){
-    return this.http.post(`${this.URL}updateProposal.php`,JSON.stringify(proposal));
+  updateProposal(proposal,contractId:number){
+    return this.http.put(`${this.URL}proposal/${contractId}`,JSON.stringify(proposal));
   }
 }
