@@ -35,6 +35,56 @@ class ProposalServiceTest extends TestCase {
 		Assert::assertEquals($price, $proposal->getPrice());
 	}
 
+	public function testSign(): void {
+		$title = 'My proposal title';
+		$description = 'My proposal description';
+		$price = '$ 100';
+
+		$obj = self::createProposal($title, $description, $price);
+		Assert::assertEquals($obj->isSigned(), false);
+
+		ProposalService::sign($obj);
+		Assert::assertEquals($obj->isSigned(), true);
+	}
+
+	public function testDecline(): void {
+		$title = 'My proposal title';
+		$description = 'My proposal description';
+		$price = '$ 100';
+
+		$obj = self::createProposal($title, $description, $price);
+		Assert::assertFalse($obj->isDeclined());
+
+		ProposalService::decline($obj);
+		Assert::assertTrue($obj->isDeclined());
+	}
+
+	public function testDelete(): void {
+		$title = 'My proposal title';
+		$description = 'My proposal description';
+		$price = '$ 100';
+
+		$instance = self::createProposal($title, $description, $price);
+
+		$proposal = ProposalService::getProposal($instance->getId());
+
+		Assert::assertEquals($title, $proposal->getTitle());
+		
+		Assert::assertTrue(ProposalService::deleteProposal($proposal));
+	}
+
+	public function testOpen(): void {
+		$title = 'My proposal title';
+		$description = 'My proposal description';
+		$price = '$ 100';
+
+		$obj = self::createProposal($title, $description, $price);
+		Assert::assertFalse($obj->isOpen());
+
+		ProposalService::open($obj);
+		Assert::assertTrue($obj->isOpen());
+	}
+
 	private static function createProposal(string $title, string $description, string $price): ProposalEntity {
 		$obj = new ProposalEntity($title, $description, $price);
 		return ProposalService::create($obj);
