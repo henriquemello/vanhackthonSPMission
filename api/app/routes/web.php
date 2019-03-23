@@ -12,40 +12,54 @@
 */
 
 /** @var Laravel\Lumen\Routing\Router $router */
-$router->get('/', function () use ($router) {
-	return $router->app->version();
-});
+
+use ProposiDocs\Proposal\Entity\ProposalEntity;
 
 $router->get('/proposals', function () use ($router) {
-	return 'list of proposal';
+	$proposals = \ProposiDocs\Proposal\ProposalService::getAll();
+	$data = [];
+
+	/** @var ProposalEntity $proposal */
+	foreach ($proposals as $proposal) {
+		$data[] = $proposal->toArray();
+	}
+	return $data;
 });
 
-$router->post('/proposal', function () use ($router) {
-	return 'create proposal';
+$router->post('/proposal', function (\Illuminate\Http\Request $request) use ($router) {
+	$title = $request->json()->get('subject');
+	$price = $request->json()->get('price');
+	$description = $request->json()->get('description');
+	$proposal = new ProposalEntity($title, $description, $price);
+	return \ProposiDocs\Proposal\ProposalService::create($proposal)->toArray();
 });
 
-$router->put('/proposal/{id}', function ($id) use ($router) {
-	return 'update proposal ' . $id;
+$router->put('/proposal/{id}', function ($id, \Illuminate\Http\Request $request) use ($router) {
+	return false;
 });
 
 $router->delete('/proposal/{id}', function ($id) use ($router) {
-	return 'delete proposal ' . $id;
+	$proposal = \ProposiDocs\Proposal\ProposalService::getProposal($id);
+	return \ProposiDocs\Proposal\ProposalService::deleteProposal($proposal);
 });
 
 $router->get('/proposal/{id}', function ($id) use ($router) {
-	return 'proposal with id ' . $id;
+	return \ProposiDocs\Proposal\ProposalService::getProposal($id)->toArray();
 });
 
 $router->get('/proposal/{id}/isSigned', function ($id) use ($router) {
-	return 'isSigned proposal ' . $id;
+	$proposalEntity = \ProposiDocs\Proposal\ProposalService::getProposal($id);
+	return $proposalEntity->isSigned();
 });
 
 $router->get('/proposal/{id}/isOpened', function ($id) use ($router) {
-	return 'isOpened proposal ' . $id;
+	$proposalEntity = \ProposiDocs\Proposal\ProposalService::getProposal($id);
+	return $proposalEntity->isOpen();
 });
 
 $router->get('/proposal/{id}/isDeclined', function ($id) use ($router) {
-	return 'isDeclined proposal ' . $id;
+	$proposalEntity = \ProposiDocs\Proposal\ProposalService::getProposal($id);
+	return $proposalEntity->isDeclined();
 });
 
 $router->get('/proposal/{id}/getLastVersion', function ($id) use ($router) {

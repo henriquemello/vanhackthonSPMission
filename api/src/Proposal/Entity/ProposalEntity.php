@@ -75,4 +75,16 @@ class ProposalEntity {
 
 		return $this;
 	}
+
+	public function toArray() {
+		return [
+			'id' => $this->getId(),
+			'subject' => $this->getTitle(),
+			'description' => $this->getDescription(),
+			'price' => $this->getPrice(),
+			'isOpened' => $this->isOpen(),
+			'isSigned' => $this->isSigned(),
+			'isDeclined' => $this->isDeclined(),
+		];
+	}
 }
