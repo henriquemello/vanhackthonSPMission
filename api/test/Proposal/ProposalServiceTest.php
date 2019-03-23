@@ -47,6 +47,18 @@ class ProposalServiceTest extends TestCase {
 		Assert::assertEquals($obj->isSigned(), true);
 	}
 
+	public function testDecline(): void {
+		$title = 'My proposal title';
+		$description = 'My proposal description';
+		$price = '$ 100';
+
+		$obj = self::createProposal($title, $description, $price);
+		Assert::assertEquals($obj->isDeclined(), false);
+
+		ProposalService::decline($obj);
+		Assert::assertEquals($obj->isDeclined()(), true);
+	}
+
 	private static function createProposal(string $title, string $description, string $price): ProposalEntity {
 		$obj = new ProposalEntity($title, $description, $price);
 		return ProposalService::create($obj);

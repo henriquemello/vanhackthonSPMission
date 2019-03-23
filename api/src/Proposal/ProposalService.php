@@ -25,8 +25,13 @@ class ProposalService {
 		ProposalStorageService::resolve()->updateProposal($entity);
 		return $entity;
 	}
- 
-//decline
+
+	public static function decline(ProposalEntity $entity): ProposalEntity {
+		$entity->decline();
+		ProposalStorageService::resolve()->updateProposal($entity);
+		return $entity;
+	}
+
 //delete
 //update
 
