@@ -56,7 +56,7 @@ class ProposalServiceTest extends TestCase {
 		Assert::assertFalse($obj->isDeclined());
 
 		ProposalService::decline($obj);
-		Assert::assertTrue($obj->isDeclined()());
+		Assert::assertTrue($obj->isDeclined());
 	}
 
 	public function testDelete(): void {
