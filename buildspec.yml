@@ -11,9 +11,12 @@ phases:
             - echo Installing source NPM dependencies...
             - npm install
             - npm install -g @angular/cli
+            - npm install --save-dev @angular-devkit/build-angular
     build:
         commands:
             - echo Build started on `date`
+            - pwd
+            - ls -l
             - cd proposiDocs
             - ng build
     post_build:
