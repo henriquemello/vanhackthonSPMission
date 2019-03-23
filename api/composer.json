@@ -1,0 +1,19 @@
+{
+    "name": "vh/proposidocs",
+    "description": "Proposidocs",
+    "authors": [
+        {
+            "name": "Rafael Cardoso",
+            "email": "xinhus@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "ProposiDocs\\":"src/",
+            "Test\\ProposiDocs\\":"test/"
+        }
+    }
+}
