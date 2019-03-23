@@ -32,9 +32,8 @@ class ProposalService {
 		return $entity;
 	}
 
-	public static function deleteProposal(ProposalEntity $entity): ProposalEntity {
-		ProposalStorageService::resolve()->deleteProposal($entity);
-		return $entity;
+	public static function deleteProposal(ProposalEntity $entity): bool {
+		return ProposalStorageService::resolve()->deleteProposal($entity);
 	}
 
 	public static function open(ProposalEntity $entity): ProposalEntity {

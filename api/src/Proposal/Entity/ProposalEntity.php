@@ -59,7 +59,7 @@ class ProposalEntity {
 	{
 		$this->isSigned = true;
 		$this->isDeclined = false;
-		
+
 		return $this;
 	}
 
