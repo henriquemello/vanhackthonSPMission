@@ -6,26 +6,27 @@ import { ContractService } from './contract.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   title = 'proposiDocs';
+   
 
-  constructor(private _contract: ContractService){
+  constructor(private _contractService: ContractService){ }
 
-    _contract = null;
-
-
-    // ngOnInit(){
-      
-    // }
-
-    // getProposals(){
-    //   this._contract.getProposals().subscribe(
-    //     result => this._contract = result
-    //   );
-    // }
+    //_contract =null;
+    _contract = ['henrique','eduardo','rafael','Cleiver','Fernando'];
 
 
-    
+    ngOnInit(){
+      this.getProposals();
+    }
+ 
 
-  }
+    getProposals(){
+      // this._contractService.getProposals().subscribe(
+      //   result => this._contract = result
+      // );
+
+      return this._contract;
+ 
+    }
 }

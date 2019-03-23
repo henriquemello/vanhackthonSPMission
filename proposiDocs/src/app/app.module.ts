@@ -1,14 +1,13 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
-
-// import { AppRoutingModule } from './app-routing-module';
 import { AppComponent } from './app.component';
+import { HttpClientModule} from '@angular/common/http';
 
-import { environment } from '../environments/environment';
+import { ContractService } from './contract.service';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { EditComponent } from './contract/edit/edit.component';
 import { ListComponent } from './contract/list/list.component';
 
@@ -16,17 +15,21 @@ import { ListComponent } from './contract/list/list.component';
   declarations: [
     AppComponent,
     EditComponent,
-    ListComponent
+    ListComponent,
+ 
  
   ],
   imports: [
     BrowserModule,
     FormsModule,
     // AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    FormsModule,
+    HttpClientModule,
+
   ],
-  providers: [],
+  providers: [
+    ContractService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
