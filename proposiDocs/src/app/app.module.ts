@@ -14,11 +14,13 @@ import { ViewComponent } from './contract/view/view.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
+import { MessageComponent } from './shared/message/message.component';
 
 const appRoutes: Routes = [
   //{ path: 'crisis-center', component: CrisisListComponent },
   { path: 'list',      component: ListComponent },
   { path: 'view/:id',      component: ViewComponent },
+  { path: 'view/:id/:r',      component: ViewComponent },
   // {
   //   path: 'heroes',
   //   component: HeroListComponent,
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
     ListComponent,
     ViewComponent,
     HeaderComponent,
+    MessageComponent,
 
   ],
   imports: [

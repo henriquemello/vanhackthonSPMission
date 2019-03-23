@@ -13,8 +13,15 @@ export class ViewComponent implements OnInit {
     private _contractService: ContractService,
     private route: ActivatedRoute,
     private router: Router
-    ) { }
+  ) {
 
+    this.router.routeReuseStrategy.shouldReuseRoute = function() {
+      return false
+    }
+
+  }
+
+  _redirected = false
   _contract = {
     "id": "",
   	"title": "Dream Contract",
@@ -26,8 +33,12 @@ export class ViewComponent implements OnInit {
 
   ret = null
 
+
   ngOnInit() {
-    this._contract.id = this.route.snapshot.paramMap.get("id")
+    this._contract.id = (this.route.snapshot.paramMap.get("id"))
+    if (this.route.snapshot.paramMap.get("r")) {
+      this._redirected = true
+    }
     this.getProposal(this._contract.id)
   }
 
@@ -42,7 +53,7 @@ export class ViewComponent implements OnInit {
 
   signProposal(id: string) {
     this.ret = {
-      "error": "Proposta desatualizada",
+      "error": "Proposal is out-of-date",
       "id": "333444"
     }
 
@@ -51,7 +62,7 @@ export class ViewComponent implements OnInit {
 
   declineProposal(id: string) {
     this.ret = {
-      //"error": "Erro ao declinar proposta",
+      //"error": "Error on decline proposal",
       "id": "333444"
     }
 
@@ -59,8 +70,11 @@ export class ViewComponent implements OnInit {
   }
 
   showError() {
-    console.log("### SHOW ERROR", this.ret)
-    this.ret = null
+    this.router.navigate([`/view/${this.ret.id}/r`]);
+    Promise.resolve(null).then(() => {
+      this.ret = null
+      return this.ret
+    })
   }
 
   disableButtons() {

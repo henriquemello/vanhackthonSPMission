@@ -2,6 +2,10 @@
 
 	<app-header></app-header>
 
+	<div *ngIf="(_redirected)?true:false">
+		<app-message></app-message>
+	</div>
+
 	<div class="panel panel-primary" style="width: 100%;">
 		<div class="panel-heading">{{_contract.id}} - {{_contract.title}}</div>
 
@@ -17,8 +21,8 @@
 			<button [disabled]=isDisabled() class="btn btn-success mx-auto" (click)="signProposal(_contract.id)">Sign Proposal</button>
 			<button [disabled]=isDisabled() class="btn btn-danger" (click)="declineProposal(_contract.id)">Decline Proposal</button>
 
-
 			{{(ret && ret.error)?showError():((ret)?disableButtons():doNothing())}}
+
 
 		</div>
 	</div>
