@@ -1,0 +1,40 @@
+[2019-03-23 19:19:43] production.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Declaration of ProposiDocs\Proposal\Storage\AWS\ProposalStorageAWS::getProposal(int $proposalId): array must be compatible with ProposiDocs\Proposal\Storage\ProposalStorage::getProposal(int $proposalId): ProposiDocs\Proposal\Entity\ProposalEntity in /home/henrique/Documentos/VANHACK/ProposiDocs/api/src/Proposal/Storage/AWS/ProposalStorageAWS.php:8
+Stack trace:
+#0 /home/henrique/Documentos/VANHACK/ProposiDocs/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\Lumen\Application->handleShutdown()
+#1 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#2 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Declaration of ProposiDocs\\Proposal\\Storage\\AWS\\ProposalStorageAWS::getProposal(int $proposalId): array must be compatible with ProposiDocs\\Proposal\\Storage\\ProposalStorage::getProposal(int $proposalId): ProposiDocs\\Proposal\\Entity\\ProposalEntity at /home/henrique/Documentos/VANHACK/ProposiDocs/api/src/Proposal/Storage/AWS/ProposalStorageAWS.php:8)
+[stacktrace]
+#0 /home/henrique/Documentos/VANHACK/ProposiDocs/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\\Lumen\\Application->handleShutdown()
+#1 [internal function]: Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#2 {main}
+"} 
+[2019-03-23 19:20:15] production.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Declaration of ProposiDocs\Proposal\Storage\AWS\ProposalStorageAWS::getProposal(int $proposalId): array must be compatible with ProposiDocs\Proposal\Storage\ProposalStorage::getProposal(int $proposalId): ProposiDocs\Proposal\Entity\ProposalEntity in /home/henrique/Documentos/VANHACK/ProposiDocs/api/src/Proposal/Storage/AWS/ProposalStorageAWS.php:8
+Stack trace:
+#0 /home/henrique/Documentos/VANHACK/ProposiDocs/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\Lumen\Application->handleShutdown()
+#1 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#2 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Declaration of ProposiDocs\\Proposal\\Storage\\AWS\\ProposalStorageAWS::getProposal(int $proposalId): array must be compatible with ProposiDocs\\Proposal\\Storage\\ProposalStorage::getProposal(int $proposalId): ProposiDocs\\Proposal\\Entity\\ProposalEntity at /home/henrique/Documentos/VANHACK/ProposiDocs/api/src/Proposal/Storage/AWS/ProposalStorageAWS.php:8)
+[stacktrace]
+#0 /home/henrique/Documentos/VANHACK/ProposiDocs/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\\Lumen\\Application->handleShutdown()
+#1 [internal function]: Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#2 {main}
+"} 
+[2019-03-23 19:22:36] production.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Declaration of ProposiDocs\Proposal\Storage\AWS\ProposalStorageAWS::getProposal(int $proposalId): array must be compatible with ProposiDocs\Proposal\Storage\ProposalStorage::getProposal(int $proposalId): ProposiDocs\Proposal\Entity\ProposalEntity in /home/henrique/Documentos/VANHACK/ProposiDocs/api/src/Proposal/Storage/AWS/ProposalStorageAWS.php:8
+Stack trace:
+#0 /home/henrique/Documentos/VANHACK/ProposiDocs/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\Lumen\Application->handleShutdown()
+#1 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#2 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Declaration of ProposiDocs\\Proposal\\Storage\\AWS\\ProposalStorageAWS::getProposal(int $proposalId): array must be compatible with ProposiDocs\\Proposal\\Storage\\ProposalStorage::getProposal(int $proposalId): ProposiDocs\\Proposal\\Entity\\ProposalEntity at /home/henrique/Documentos/VANHACK/ProposiDocs/api/src/Proposal/Storage/AWS/ProposalStorageAWS.php:8)
+[stacktrace]
+#0 /home/henrique/Documentos/VANHACK/ProposiDocs/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\\Lumen\\Application->handleShutdown()
+#1 [internal function]: Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#2 {main}
+"} 
+[2019-03-23 19:48:15] production.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Declaration of ProposiDocs\Proposal\Storage\AWS\ProposalStorageAWS::getProposal(int $proposalId): array must be compatible with ProposiDocs\Proposal\Storage\ProposalStorage::getProposal(int $proposalId): ProposiDocs\Proposal\Entity\ProposalEntity in /home/henrique/Documentos/VANHACK/ProposiDocs/api/src/Proposal/Storage/AWS/ProposalStorageAWS.php:8
+Stack trace:
+#0 /home/henrique/Documentos/VANHACK/ProposiDocs/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\Lumen\Application->handleShutdown()
+#1 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}()
+#2 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 64): Declaration of ProposiDocs\\Proposal\\Storage\\AWS\\ProposalStorageAWS::getProposal(int $proposalId): array must be compatible with ProposiDocs\\Proposal\\Storage\\ProposalStorage::getProposal(int $proposalId): ProposiDocs\\Proposal\\Entity\\ProposalEntity at /home/henrique/Documentos/VANHACK/ProposiDocs/api/src/Proposal/Storage/AWS/ProposalStorageAWS.php:8)
+[stacktrace]
+#0 /home/henrique/Documentos/VANHACK/ProposiDocs/api/vendor/laravel/lumen-framework/src/Concerns/RegistersExceptionHandlers.php(54): Laravel\\Lumen\\Application->handleShutdown()
+#1 [internal function]: Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#2 {main}
+"} 
