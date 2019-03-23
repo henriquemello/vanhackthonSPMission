@@ -18,6 +18,7 @@ phases:
             - pwd
             - ls -l
             - cd proposiDocs
+            - npm install
             - ng build
     post_build:
          commands:
