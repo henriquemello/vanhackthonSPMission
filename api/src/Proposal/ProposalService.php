@@ -37,6 +37,12 @@ class ProposalService {
 		return $entity;
 	}
 
+	public static function open(ProposalEntity $entity): ProposalEntity {
+		$entity->open();
+		ProposalStorageService::resolve()->updateProposal($entity);
+		return $entity;
+	}
+
 
 //update
 
