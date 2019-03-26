@@ -1,0 +1,51 @@
+---
+# tasks file for deploy-nginx
+- name: Wait for system to become reachable
+  wait_for_connection:
+    timeout: 60
+
+- name: "Copy local ../proposidocs.fernandocunha.click.conf to remote /etc/nginx/conf.d/proposidocs.fernandocunha.click"
+  copy:
+    src: proposidocs.fernandocunha.click.conf
+    dest: /etc/nginx/conf.d/proposidocs.fernandocunha.click.conf
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+    backup: no
+
+- name: "Copy local nginx.conf to remote /etc/nginx/nginx.conf"
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+    backup: no
+    
+- name: "NGINX proposidocs.fernandocunha.click check"
+  shell: nginx -t -c /etc/nginx/conf.d/proposidocs.fernandocunha.click
+  register: shell_result
+- debug:
+    var: shell_result
+
+- name: "NGINX check"
+  shell: nginx -t -c /etc/nginx/nginx.conf
+  register: shell_result
+- debug:
+    var: shell_result    
+
+- name: "NGINX reload"
+  shell: systemctl restart nginx
+  register: shell_result
+- debug:
+    var: shell_result
+
+- name: Wait 30 seconds for port 80 to come UP
+  wait_for:
+    port: 80
+    timeout: 30
+
+# - name: Wait 30 seconds for port 8080 to come UP
+#   wait_for:
+#     port: 8080
+#     timeout: 30

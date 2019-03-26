@@ -1,0 +1,10 @@
+#playbook pb_haproxy.yml
+---
+- hosts: nginx
+  gather_facts: False
+  become: true
+  become_method: sudo
+  become_user: root
+  
+  roles:
+     - deploy-nginx
