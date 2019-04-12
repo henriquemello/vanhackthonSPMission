@@ -1,6 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { ContractService } from '../../contract.service';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  Router
+} from "@angular/router";
+import {
+  ContractService
+} from '../../contract.service';
 
 @Component({
   selector: 'app-list',
@@ -9,80 +16,94 @@ import { ContractService } from '../../contract.service';
 })
 export class ListComponent implements OnInit {
 
-	title = 'proposiDocs';
-	_contract =null;
-	
+  title = 'proposiDocs';
+  //_contract = null;
+
+	_contract ={
+			id: null,
+			subject: null,
+			description: null,
+			price: null,
+			isOpened: null,
+			isSigned: null,
+	}
+
+	//_contracts =null
+
  
 
-	// _contract = [
-	// 	{
-	// 		id:1,
-	// 		subject:'Proposta X',
-	// 		description:'Era uma vez uma proposta',
-	// 		price: 1510.00,
-	// 		isOpened:false,
-	// 		isSigned:true
+  _contracts = [
+  	{
+  		id:1,
+  		subject:'Proposta X',
+  		description:'Era uma vez uma proposta',
+  		price: 1510.00, 
+  		isOpened:false,
+  		isSigned:true
 
-	// 	},
-	// 	{
-	// 		id:2,
-	// 		subject:'Proposta Y',
-	// 		description:'tea te easasass',
-	// 		price: 230.00,
-	// 		isOpened:true,
-	// 		isSigned:true
+  	},
+  	{
+  		id:2,
+  		subject:'Proposta Y',
+  		description:'tea te easasass',
+  		price: 230.00,
+  		isOpened:true,
+  		isSigned:true
 
-	// 	},
-	// 	{
-	// 		id:3,
-	// 		subject:'Proposta Z',
-	// 		description:'teste teste tesr',
-	// 		price: 450.00,
-	// 		isOpened:false,
-	// 		isSigned:false
+  	},
+  	{
+  		id:3,
+  		subject:'Proposta Z',
+  		description:'teste teste tesr',
+  		price: 450.00,
+  		isOpened:false,
+  		isSigned:false
 
-	// 	}
-	// ]
+  	}
+  ]
 
-  constructor(private _contractService: ContractService, private router: Router) { }
+ 
+  constructor(private _contractService: ContractService, private router: Router) {}
 
-	
-	ngOnInit() {
-  	this.getProposals();
+
+  ngOnInit() {
+    this.getProposals();
   }
 
-	getProposals(){
-		this._contractService.getProposals().subscribe(
-			result => this._contract = result
-		);
-    
-    return this._contract;
+  getProposals() {
+    // this._contractService.getProposals().subscribe(
+    //   result => this._contracts = result
+    // );
+		
+    return this._contracts;
   }
 
-  selecionarUsuario(id: string) {
-  	this.router.navigate([`/view/${id}`]);
+  signProposal(id: string) {
+    this.router.navigate([`/view/${id}`]);
   }
 
-  adicionaUsuario(){
+  newProposal() {
+
+	this._contract.isOpened=false
+	this._contract.isSigned=false
+
+	console.log(this._contract)
+
     this._contractService.addProposal(this._contract).subscribe(
-      data =>{
-        if(data['result'] == 'OK'){
+      data => {
+        if (data['result'] == 'OK') {
           //alert(data['msg']);
           this.getProposals();
         }
       }
     );
-	}
-	
-	editarUsuario(){
-    this._contractService.updateProposal(this._contract,1).subscribe(
-      data =>{
-        if(data['result'] == 'OK'){
-          //alert(data['msg']);
-          this.getProposals();
-        }
-      }
-    );
+  }
+
+  confirmRemove(){
+	if(confirm("Are you sure to delete?")) {
+		alert("I'll be deleted!")
+    }
+	 
   }
 
 }

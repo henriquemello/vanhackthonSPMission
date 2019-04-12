@@ -4,46 +4,65 @@
 
 
   <div class="panel-body  ">
-		  <table  class="table table-hover table-condensed">
+    <table class="table table-hover table-condensed">
 
-        <tr class="success">
-          <th>Subject</th>
-          <th>Description</th>
-          
-          <th>price</th>
-          <th>isOpened</th>
-          <th>isSigned</th>
-          <th>edit</th>
-          <th>delete</th>
-        </tr>
+      <tr class="success">
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
 
-
-        <tr *ngFor="let item of _contract">
-          <td>{{item.subject}}</td>
-          <td>{{item.description}}</td>
-          
-          <td>{{item.price}}</td>
-          <td>{{item.isOpened}}</td>
-          <td>{{item.isSigned}}</td>
+        <th>Price</th>
+        <th>Opened</th>
+        <th>Signed</th>
+        <th></th>
+        <th></th>
+      </tr>
 
 
+      <tr *ngFor="let item of _contracts">
+        <td>{{item.id}}</td>
+        <td>{{item.subject}}</td>
+        <td>{{item.description}}</td>
 
-          <td> <button (click)="selecionarUsuario(item.subject)" class="btn btn-warning btn-xs ">Edit</button></td>
-          <td> <button (click)="confirmaDelete(_user.idUser)" class="btn btn-danger btn-xs">Delete</button></td>
-        </tr>
-      </table>
+        <td>{{item.price}}</td>
+        <td>{{item.isOpened}}</td>
+        <td>{{item.isSigned}}</td>
+
+
+
+        <td> <button (click)="signProposal(item.subject)" class="btn btn-success btn-xs ">Asign</button></td>
+        <td> <button (click)="confirmRemove(item.idr)" class="btn btn-danger btn-xs">Delete</button></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <form class="col-xs-4">
+    <div class="form-group  ">
+      <label>ID</label>
+      <input type="text" [(ngModel)]="_contract.id" class="form-control"   name="id"
+        placeholder="# contract">
     </div>
 
-    
-    <div class="row  col-xs-4 btn-toolbar" >
-     
- 
-      
-    
-      <button (click)="adicionaUsuario()" class="btn btn-success mx-auto">Add New</button>
-      <button (click)="editarUsuario(item)"class="btn btn-primary" >Save</button>
-   </div>
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" [(ngModel)]="_contract.subject" class="form-control"   name="subject"
+        placeholder="title">
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" [(ngModel)]="_contract.description" class="form-control"   name="description"
+        placeholder="description">
+    </div>
+
+    <div class="form-group">
+      <label>Price</label>
+      <input type="number" [(ngModel)]="_contract.price" class="form-control"   name="price"
+        placeholder="U$ 0,00">
+    </div>
+
+    <button (click)="newProposal()" class="btn btn-primary btn-sm mx-auto">Add new Proposal</button>
+  </form>
 
 </div>
-
-
